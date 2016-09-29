@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Search in Github</title>
+	<meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link rel="stylesheet" href="css/flat-ui.css">
+    <link rel="stylesheet" href="css/index.css">
+    
+	<script src="vendors/zepto.min.js"></script>
+  <script src="vendors/underscore-min.js"></script>
+  <script src="js/gh3.min.js"></script>
+</head>
+
+<body>
+
+	<div id="div_search">
+		<input type="text" placeholder="react-native" id="text1" class="form-control"></input>
+		<button id="button1" class="btn btn-embossed btn-primary" onclick="foo()">
+		  Find Top 20!
+		</button>
+	</div>
+	
+	<div id="anchor1" ></div>
+
+  
+  <script>
+	function foo(){
+		var ele1 = $("#text1")[0]
+		var text1 = ''!=ele1.value ? ele1.value:ele1.placeholder
+		console.log(text1)
+		
+		Gh3.Search.repos(text1, {start_page : 1, per_page:20, sort:'stars', in:"name" }, function (err, res) {
+		  if(err) { throw "outch ..." }
+		  //console.log(res)
+		  
+		  var ml = ""
+		  res.forEach( function(x){
+			//console.log(x)
+			console.log(x.description)
+			ml += '<\p><\p><a target="_blank" href="'+x.html_url+'" >'+x.name+'</a>:  '+x.description
+		  })
+		  
+		  //$("#anchor1").html("")
+		  $("#anchor1").html(ml)
+		  $("#div_search").css('margin-top','5%')
+		});
+	}
+
+  </script>
+
+
+</body>
+
+</html>
