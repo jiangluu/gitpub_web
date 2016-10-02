@@ -17,6 +17,7 @@
     
 	<script src="vendors/zepto.min.js"></script>
   <script src="vendors/underscore-min.js"></script>
+  <script src="vendors/numeral.js"></script>
   <script src="js/gh3.min.js"></script>
 </head>
 
@@ -29,27 +30,38 @@
 		</button>
 	</div>
 	
+	<div id="con_pacman">
+	<div class="pacman">
+		<div></div><div></div><div></div><div></div><div></div>
+	</div>
+	</div>
 	<div id="anchor1" ></div>
 
   
   <script>
+	$("#con_pacman").hide()
+	
 	function foo(){
 		var ele1 = $("#text1")[0]
 		var text1 = ''!=ele1.value ? ele1.value:ele1.placeholder
 		console.log(text1)
 		
+		$("#con_pacman").show()
+		
 		Gh3.Search.repos(text1, {start_page : 1, per_page:20, sort:'stars', in:"name" }, function (err, res) {
+			$("#con_pacman").hide()
+			
 		  if(err) { throw "outch ..." }
 		  //console.log(res)
 		  
 		  var ml = ""
 		  res.forEach( function(x){
-			//console.log(x)
-			console.log(x.description)
-			ml += '<\p><\p><a target="_blank" href="'+x.html_url+'" >'+x.name+'</a>:  '+x.description
+			console.log(x)
+			//console.log(x.description)
+			var num = numeral(x.stargazers_count).format('0,0')
+			ml += '<\p><\p><div class="con_item"><spin class="div_star"><svg aria-hidden="true"  height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>'+num+'</spin><a class="item_text" target="_blank" href="'+x.html_url+'" >'+x.name+'</a>:  '+x.description+'</div>'
 		  })
 		  
-		  //$("#anchor1").html("")
 		  $("#anchor1").html(ml)
 		  $("#div_search").css('margin-top','5%')
 		});
