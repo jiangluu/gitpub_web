@@ -8,7 +8,7 @@ img {width:100%;height:100%; objec-fit: cover; }
 
 #anchor1 { margin-left: 5%; margin-right: 5%; }
 
-#con_pacman { width:120px; margin-left:38%; background: black; }
+#con_pacman { width:120px; margin-top:4%; margin-left:38%; background: black; }
 
 .div_star { border:1px solid; border-radius:2px; padding: 2px 2px 2px 2px; }
 .item_text { padding-left: 0.8rem; }
@@ -75,17 +75,17 @@ img {width:100%;height:100%; objec-fit: cover; }
 .pacman {
   position: relative; }
   .pacman > div:nth-child(2) {
-    -webkit-animation: pacman-balls 1s -0.99s infinite linear;
-            animation: pacman-balls 1s -0.99s infinite linear; }
+    -webkit-animation: pacman-balls 1.5s -1.7s infinite linear;
+            animation: pacman-balls 1.5s -1.7s infinite linear; }
   .pacman > div:nth-child(3) {
-    -webkit-animation: pacman-balls 1s -0.66s infinite linear;
-            animation: pacman-balls 1s -0.66s infinite linear; }
+    -webkit-animation: pacman-balls 1.5s -1.2s infinite linear;
+            animation: pacman-balls 1.5s -1.2s infinite linear; }
   .pacman > div:nth-child(4) {
-    -webkit-animation: pacman-balls 1s -0.33s infinite linear;
-            animation: pacman-balls 1s -0.33s infinite linear; }
+    -webkit-animation: pacman-balls 1.5s -0.7s infinite linear;
+            animation: pacman-balls 1.5s -0.7s infinite linear; }
   .pacman > div:nth-child(5) {
-    -webkit-animation: pacman-balls 1s 0s infinite linear;
-            animation: pacman-balls 1s 0s infinite linear; }
+    -webkit-animation: pacman-balls 1.5s -0.2s infinite linear;
+            animation: pacman-balls 1.5s -0.2s infinite linear; }
   .pacman > div:first-of-type {
     width: 0px;
     height: 0px;
