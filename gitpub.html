@@ -24,7 +24,7 @@
 <body>
 
 	<div id="div_search">
-		<input type="text" placeholder="react-native" id="text1" class="form-control"></input>
+		<input type="text" placeholder="react-native" id="text1" class="form-control" ></input>
 		<button id="button1" class="btn btn-embossed btn-primary" onclick="foo()">
 		  Find Top 20!
 		</button>
@@ -66,6 +66,12 @@
 		  $("#div_search").css('margin-top','5%')
 		});
 	}
+	
+	$("#text1").on('keypress',function(ev){
+		if(13==ev.keyCode){
+			foo()
+		}
+	})
 
   </script>
 
